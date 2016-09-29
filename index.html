@@ -5,7 +5,7 @@ http://en.wikipedia.org/wiki/Mandelbrot_set
 -->
 <html>
 <h1>Click to zoom</h1>
-<canvas id="canvas" width="640" height="480">
+<canvas id="canvas" width="1024" height="768">
 </canvas>
 <script>
 (function() {
@@ -34,11 +34,14 @@ http://en.wikipedia.org/wiki/Mandelbrot_set
 
         var xSize = (xmax-xmin) * 0.4;
         var ySize = (ymax-ymin) * 0.4;
+
+        var oldXmin = xmin;
+        var oldYmin = ymin;
         
-        xmin = (xmin + xPos * xDelta) - xSize / 2;  
-        xmax = (xmin + xPos * xDelta) + xSize / 2;
-        ymin = (ymin + yPos * yDelta) - ySize / 2;
-        ymax = (ymin + yPos * yDelta) + ySize / 2;
+        xmin = (oldXmin + xPos * xDelta) - xSize / 2;  
+        xmax = (oldXmin + xPos * xDelta) + xSize / 2;
+        ymin = (oldYmin + yPos * yDelta) - ySize / 2;
+        ymax = (oldYmin + yPos * yDelta) + ySize / 2;
         
         drawMandelbrot();
     }
